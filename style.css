@@ -1,26 +1,19 @@
+/* ===== BASE ===== */
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom right, #ffe6eb, #fff);
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #ffd6f0, #c1baff);
     text-align: center;
     overflow-x: hidden;
-    position: relative;
+    min-height: 100vh;
 }
 
-body {
-    font-family: 'Quicksand', sans-serif;
-}
-
-header h1 {
-    font-family: 'Pacifico', cursive;
-}
-
-/* 🔐 Lock Screen */
+/* ===== LOCK SCREEN ===== */
 #lockScreen {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom right, #ff4d6d, #000);
+    background: linear-gradient(135deg,#ff77a9,#8c3fff);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,91 +21,138 @@ header h1 {
 }
 
 .lock-box {
-    background: white;
+    background: rgba(255,255,255,0.95);
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 20px;
+    width: 85%;
+    max-width: 320px;
 }
 
 .lock-box input {
-    padding: 10px;
+    padding: 12px;
     margin-top: 10px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid #ccc;
+    width: 100%;
 }
 
-/* Header */
-header {
-    padding: 20px;
+/* ===== BUTTONS ===== */
+button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: linear-gradient(45deg, #ff4d6d, #ff85a2);
+    color: white;
+    box-shadow: 0 0 15px rgba(255,77,109,0.6);
+    transition: 0.3s;
 }
 
-h1 {
-    color: #ff4d6d;
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(255,77,109,0.9);
 }
 
-/* Slideshow */
+/* ===== HEADER ===== */
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5em;
+    color: #ff1a75;
+    text-shadow: 0 0 10px #ff77a9, 0 0 20px #ff4d6d;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #6a2cff;
+}
+
+/* ===== SLIDESHOW ===== */
 .slideshow-container {
     position: relative;
     max-width: 400px;
+    width: 100%;
     margin: 20px auto;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .slide {
     width: 100%;
-    border-radius: 12px;
     display: none;
+    border-radius: 12px;
+    object-fit: cover;
 }
 
 .slide.active {
     display: block;
+    animation: fadeSlide 1s ease-in-out;
+}
+
+@keyframes fadeSlide {
+    from {opacity:0;}
+    to {opacity:1;}
 }
 
 .prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    
     background: rgba(0,0,0,0.4);
     color: white;
-    border: none;
-    padding: 8px;
+    
+    padding: 10px 14px;
+    border-radius: 50%;
+    
+    font-size: 18px;
     cursor: pointer;
+    
+    z-index: 10;
 }
 
-.prev { left: 0; }
-.next { right: 0; }
+/* Move them to the sides */
+.prev {
+    left: 10px;
+}
 
-/* Message */
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(255,77,109,0.8);
+    box-shadow: 0 0 10px #ff4d6d;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* ===== MESSAGE ===== */
 .message {
     padding: 20px;
     max-width: 600px;
     margin: auto;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
+    color: #5a2a72;
 }
 
-/* Button */
-button {
-    padding: 10px 20px;
-    border: none;
-    background: #ff4d6d;
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-/* Hidden */
+/* ===== SECRET MESSAGE ===== */
 .hidden {
     display: none;
-    color: #ff4d6d;
+    font-weight: 600;
+    color: #ff1a75;
+    text-shadow: 0 0 10px #ff77a9;
 }
 
-/* 💌 Love Notes */
+/* ===== LOVE NOTES ===== */
 .love-note {
     position: absolute;
-    background: linear-gradient(45deg,#ff4d6d,#ff85a2); /* cute pink gradient */
+    background: linear-gradient(45deg,#ff4d6d,#ff85a2);
     color: white;
     padding: 10px 15px;
     border-radius: 25px;
-    font-size: 14px;
+    font-size: 13px;
+    max-width: 70%;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     transform: translate(-50%, -50%) scale(0);
     animation: floatGlow 2s forwards;
@@ -125,13 +165,7 @@ button {
     100% {opacity:0; transform:translate(-50%,-140px) scale(1);}
 }
 
-@keyframes floatFade {
-    0% { opacity: 0; transform: translate(-50%, -20px) scale(0.8); }
-    20% { opacity: 1; }
-    100% { opacity: 0; transform: translate(-50%, -140px) scale(1.1); }
-}
-
-/* 💫 Tap Glow */
+/* ===== TAP GLOW ===== */
 .tap-glow {
     position: absolute;
     width: 20px;
@@ -148,44 +182,34 @@ button {
     100% {width: 120px; height: 120px; opacity:0;}
 }
 
-@keyframes glowExpand {
-    0% { width: 10px; height: 10px; opacity: 0.8; }
-    100% { width: 120px; height: 120px; opacity: 0; }
-}
-
-/* 💕 Hearts */
+/* ===== FLOATING HEARTS ===== */
 #hearts {
     position: fixed;
-    bottom: 0;
-    width: 100%;
-    pointer-events: none;
+    bottom:0;
+    width:100%;
+    pointer-events:none;
     z-index: 5;
 }
 
 .heart {
     position: absolute;
     bottom: 0;
-    animation: floatUp 5s linear forwards;
-    font-size: 20px;
+    font-size: 26px;
+    animation: floatHeart 5s linear forwards;
 }
 
-@keyframes floatUp {
-    from { transform: translateY(0); }
-    to { transform: translateY(-600px); }
+@keyframes floatHeart {
+    0% {transform: translateY(0) rotate(0deg);}
+    50% {transform: translateY(-300px) rotate(20deg);}
+    100% {transform: translateY(-600px) rotate(-15deg);}
 }
 
-/* 🌙 Dark Mode */
-body.dark {
-    background: linear-gradient(to bottom right, #0f0f1a, #1a1a2e);
-    color: white;
-}
-
-/* ✨ Name Float */
+/* ===== FLOATING NAME ===== */
 .name-float {
     position: fixed;
     color: #ff85a2;
-    font-size:28px;
-    text-shadow:0 0 10px #ff1a75, 0 0 20px #ff77a9; /* neon glow effect */
+    font-size: 26px;
+    text-shadow:0 0 10px #ff1a75, 0 0 20px #ff77a9;
     animation: floatName 10s linear infinite;
     pointer-events: none;
 }
@@ -194,12 +218,75 @@ body.dark {
     0% {transform: translateY(100vh);}
     100% {transform: translateY(-100vh);}
 }
-@keyframes floatName {
-    from { transform: translateY(100vh); }
-    to { transform: translateY(-100vh); }
-}
 
+/* ===== FOOTER ===== */
 footer {
     padding: 20px;
-    color: #888;
+    color: #5a2a72;
+}
+
+/* ===== 📱 MOBILE FIX (iPhone XR + others) ===== */
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .message {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    button {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .lock-box {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+/* Chat Container */
+.chat-box {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Messages */
+.msg {
+    padding: 12px 16px;
+    border-radius: 20px;
+    max-width: 75%;
+    font-size: 14px;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Left (her) */
+.msg.left {
+    background: #2c2c2e;
+    color: white;
+    align-self: flex-start;
+}
+
+/* Right (you) */
+.msg.right {
+    background: #007aff;
+    color: white;
+    align-self: flex-end;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(10px);}
+    to {opacity:1; transform: translateY(0);}
 }
