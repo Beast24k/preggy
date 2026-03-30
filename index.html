@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Beatrice ❤️</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- Add in <head> -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- 🔐 Lock Screen -->
+<div id="lockScreen">
+    <div class="lock-box">
+        <h2>For Beatrice Only ❤️</h2>
+        <p>Enter the magic word</p>
+        <input type="password" id="password" placeholder="Hint: her name 😉">
+        <button id="unlockBtn">Enter</button>
+        <p id="error"></p>
+    </div>
+</div>
+
+<!-- 🎶 Background Music -->
+<audio id="bgMusic" loop>
+    <source src="Music.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+    <h1>Happy Birthday Beatrice 🎉</h1>
+    <p>This one is special… just like you 💕</p>
+</header>
+
+<!-- 📸 Slideshow -->
+<div class="slideshow-container">
+    <img class="slide active" src="img1.jpg">
+    <img class="slide" src="img2.jpg">
+    <img class="slide" src="img3.jpg">
+    <img class="slide" src="img4.jpg">
+    <img class="slide" src="img5.jpg">
+    <img class="slide" src="img6.jpg">
+
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+</div>
+
+<!-- 💌 Message -->
+<div class="message">
+    <p id="typing"></p>
+</div>
+
+<!-- 🎁 Hidden Message -->
+<button class="secret-btn" onclick="showMessage()">Tap me 🎁</button>
+<p id="secret" class="hidden"></p>
+
+<!-- 💕 Floating Hearts -->
+<div id="hearts"></div>
+
+<footer>
+    Made with ❤️ just for you
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
